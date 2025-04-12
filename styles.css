@@ -393,8 +393,6 @@ body {
 
 .experience-date {
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
     background: #007bff;
     color: white;
     padding: 10px 25px;
@@ -404,6 +402,19 @@ body {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     z-index: 2;
     font-size: 1.1rem;
+    top: -40px;
+    width: fit-content;
+}
+
+/* Position dates on alternating sides */
+.experience-item:nth-child(odd) .experience-date {
+    left: 5%;
+    transform: none;
+}
+
+.experience-item:nth-child(even) .experience-date {
+    right: 5%;
+    transform: none;
 }
 
 .experience-content {
@@ -417,6 +428,7 @@ body {
     transition: all 0.3s ease;
     z-index: 2;
     border: 1px solid rgba(0,0,0,0.1);
+    margin-top: 60px;
 }
 
 .experience-item:nth-child(odd) .experience-content {
@@ -475,11 +487,13 @@ body {
     }
 
     .experience-date {
-        left: 30px;
+        left: 15px !important;
+        right: auto !important;
         transform: none;
         margin-left: 0;
         font-size: 1rem;
         padding: 8px 20px;
+        top: -30px;
     }
 
     .experience-content {
@@ -487,6 +501,7 @@ body {
         margin-left: 15% !important;
         float: none !important;
         padding: 20px;
+        margin-top: 50px;
     }
 
     .experience-item:nth-child(odd) .experience-content,
