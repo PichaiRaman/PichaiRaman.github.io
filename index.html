@@ -1,1 +1,143 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pichai Raman - Personal Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">PR</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="resume.pdf" target="_blank"><i class="fas fa-file-pdf"></i> Resume</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Pichai Raman</h1>
+            <p class="subtitle">Researcher & Developer</p>
+            <div class="social-links">
+                <a href="https://github.com/PichaiRaman" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/your-profile" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://scholar.google.com/citations?user=your-id" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+                <a href="resume.pdf" target="_blank"><i class="fas fa-file-pdf"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Welcome to my personal website! I am a passionate researcher and developer with expertise in [Your Field]. My work focuses on [Your Research Interests].</p>
+                    <p>I am currently [Your Current Position] at [Your Institution/Company]. My research interests include [List Your Research Interests].</p>
+                </div>
+                <div class="profile-image">
+                    <img src="profile.jpg" alt="Pichai Raman">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="publications" class="section">
+        <div class="container">
+            <h2>Publications</h2>
+            <div class="publications-summary">
+                <div class="summary-item">
+                    <span class="summary-number" id="total-pubs">0</span>
+                    <span class="summary-label">Total Publications</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-number" id="first-author">0</span>
+                    <span class="summary-label">First Author</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-number" id="second-author">0</span>
+                    <span class="summary-label">Second Author</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-number" id="middle-author">0</span>
+                    <span class="summary-label">Middle Author</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-number" id="last-author">0</span>
+                    <span class="summary-label">Last Author</span>
+                </div>
+            </div>
+            <div class="publications-controls">
+                <div class="search-box">
+                    <input type="text" id="publication-search" placeholder="Search publications...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="sort-controls">
+                    <select id="sort-by">
+                        <option value="year-desc">Year (Newest First)</option>
+                        <option value="year-asc">Year (Oldest First)</option>
+                        <option value="title">Title</option>
+                        <option value="journal">Journal</option>
+                    </select>
+                </div>
+            </div>
+            <div class="publications-table-container">
+                <table class="publications-table">
+                    <thead>
+                        <tr>
+                            <th data-sort="year">Year</th>
+                            <th data-sort="title">Title</th>
+                            <th data-sort="authors">Authors</th>
+                            <th data-sort="journal">Journal</th>
+                            <th>PMID</th>
+                            <th>Link</th>
+                        </tr>
+                    </thead>
+                    <tbody id="publications-table-body">
+                        <!-- Publications will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <!-- Projects will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Contact</h2>
+            <div class="contact-content">
+                <p>Feel free to reach out to me through any of the following channels:</p>
+                <div class="contact-links">
+                    <a href="mailto:your.email@example.com"><i class="fas fa-envelope"></i> Email</a>
+                    <a href="https://github.com/PichaiRaman" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://linkedin.com/in/your-profile" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Pichai Raman. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
