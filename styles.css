@@ -752,6 +752,7 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
+    padding: 0 1rem;
 }
 
 .research-interest-card {
@@ -762,6 +763,9 @@ footer {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .research-interest-card:hover {
@@ -780,21 +784,59 @@ footer {
     color: #2c3e50;
     margin-bottom: 1rem;
     font-size: 1.4rem;
+    line-height: 1.3;
 }
 
 .research-interest-card p {
     color: #666;
     line-height: 1.6;
     font-size: 1rem;
+    margin-bottom: 0;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .research-interests-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 0.5rem;
     }
     
     .research-interest-card {
         padding: 1.5rem;
+    }
+
+    .research-interest-card i {
+        font-size: 2rem;
+    }
+
+    .research-interest-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .research-interest-card p {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .research-interests-grid {
+        gap: 1rem;
+    }
+    
+    .research-interest-card {
+        padding: 1.25rem;
+    }
+
+    .research-interest-card i {
+        font-size: 1.75rem;
+    }
+
+    .research-interest-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .research-interest-card p {
+        font-size: 0.9rem;
     }
 } 
