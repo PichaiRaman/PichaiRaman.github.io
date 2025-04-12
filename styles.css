@@ -21,7 +21,7 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 2rem;
 }
@@ -72,14 +72,35 @@ body {
 
 /* Hero Section */
 .hero {
-    height: 37.5vh;
-    min-height: 250px;
+    height: 60vh;
+    min-height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
     padding-top: 4rem;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.hero-image {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 2rem;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .hero-content h1 {
@@ -128,28 +149,65 @@ body {
 
 /* About Section */
 .about-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    max-width: 100%;
 }
 
 .about-text p {
     margin-bottom: 1.5rem;
-    font-size: 1.1rem;
-    color: var(--text-color);
+}
+
+.about-text p:last-child {
+    margin-bottom: 0;
 }
 
 .profile-image {
-    border-radius: 1rem;
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 300px;
+    float: left;
+    margin: 0 2rem 1rem 0;
+    shape-outside: margin-box;
 }
 
 .profile-image img {
     width: 100%;
     height: auto;
     display: block;
+}
+
+.read-more-btn {
+    display: block;
+    margin: 2rem auto 0;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.read-more-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+.read-more-btn.expanded::after {
+    content: "Read Less";
+}
+
+.read-more-btn:not(.expanded)::after {
+    content: "Read More";
 }
 
 /* Publications Section */
@@ -222,38 +280,70 @@ body {
 }
 
 .publications-table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin: 20px 0;
     background: white;
-    border-radius: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .publications-table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 0 auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .publications-table th,
 .publications-table td {
-    padding: 1rem;
+    padding: 12px 15px;
     text-align: left;
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
 }
 
 .publications-table th {
-    background-color: #f9fafb;
+    background-color: #f8f9fa;
     font-weight: 600;
-    color: var(--text-color);
-    cursor: pointer;
-    user-select: none;
+    color: #333;
+    border-bottom: 2px solid #e0e0e0;
 }
 
-.publications-table th:hover {
-    background-color: #f3f4f6;
+.publications-table tr:hover {
+    background-color: #f5f5f5;
 }
 
-.publications-table tbody tr:hover {
-    background-color: #f9fafb;
+.publications-table td:last-child,
+.publications-table th:last-child {
+    border-right: none;
+}
+
+.publications-table tr:last-child td {
+    border-bottom: none;
+}
+
+.publications-table td:nth-child(1) { /* Year column */
+    width: 8%;
+}
+
+.publications-table td:nth-child(2) { /* Title column */
+    width: 30%;
+}
+
+.publications-table td:nth-child(3) { /* Authors column */
+    width: 35%;
+}
+
+.publications-table td:nth-child(4) { /* Journal column */
+    width: 20%;
+}
+
+.publications-table td:nth-child(5) { /* PMID column */
+    width: 7%;
 }
 
 .publications-table a {
@@ -362,8 +452,19 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .about-content {
-        grid-template-columns: 1fr;
+    .hero {
+        height: auto;
+        min-height: auto;
+        padding: 6rem 0 4rem;
+    }
+    
+    .hero-image {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .about-text {
+        font-size: 1rem;
     }
 
     .hero-content h1 {
@@ -407,4 +508,41 @@ footer {
         display: block;
         overflow-x: auto;
     }
+}
+
+.pagination-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.pagination button {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pagination button:hover:not(:disabled) {
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+}
+
+.pagination button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination span {
+    padding: 8px 12px;
+    color: #666;
 } 

@@ -1,5 +1,5 @@
 // Publications data
-const publications = [
+let publications = [
     {
         authors: "Author1, Author2, Pichai Raman, et al.",
         doi: "10.xxxx/xxxx",
@@ -25,6 +25,8 @@ const projects = [
 
 // Publications handling
 let currentSort = 'year-desc';
+let currentPage = 1;
+const itemsPerPage = 10;
 
 async function loadPublications() {
     try {
@@ -32,13 +34,15 @@ async function loadPublications() {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-        publications = await response.json();
+        const data = await response.json();
+        publications = data.publications;
         updatePublicationSummary();
         renderPublicationsTable();
+        updatePaginationControls();
     } catch (error) {
         console.error('Error loading publications:', error);
         const tbody = document.getElementById('publications-table-body');
-        tbody.innerHTML = `<tr><td colspan="6" style="color: red; text-align: center;">Error loading publications: ${error.message}</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="5" style="color: red; text-align: center;">Error loading publications: ${error.message}</td></tr>`;
     }
 }
 
@@ -63,12 +67,19 @@ function sortPublications(pubs, sortBy) {
     });
 }
 
+function getPaginatedPublications() {
+    const sortedPubs = sortPublications(publications, currentSort);
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    return sortedPubs.slice(startIndex, endIndex);
+}
+
 function renderPublicationsTable() {
     const tbody = document.getElementById('publications-table-body');
     tbody.innerHTML = '';
 
-    const sortedPubs = sortPublications(publications, currentSort);
-    sortedPubs.forEach(pub => {
+    const paginatedPubs = getPaginatedPublications();
+    paginatedPubs.forEach(pub => {
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>${pub.year}</td>
@@ -76,16 +87,43 @@ function renderPublicationsTable() {
             <td>${pub.authors}</td>
             <td>${pub.journal}</td>
             <td><a href="https://pubmed.ncbi.nlm.nih.gov/${pub.pmid}/" target="_blank">${pub.pmid}</a></td>
-            <td><a href="https://pubmed.ncbi.nlm.nih.gov/${pub.pmid}/" target="_blank">View</a></td>
         `;
         tbody.appendChild(row);
     });
 }
 
+function updatePaginationControls() {
+    const totalPages = Math.ceil(publications.length / itemsPerPage);
+    const paginationDiv = document.getElementById('pagination-controls');
+    
+    let paginationHTML = `
+        <div class="pagination">
+            <button onclick="changePage(1)" ${currentPage === 1 ? 'disabled' : ''}>First</button>
+            <button onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>Previous</button>
+            <span>Page ${currentPage} of ${totalPages}</span>
+            <button onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>Next</button>
+            <button onclick="changePage(${totalPages})" ${currentPage === totalPages ? 'disabled' : ''}>Last</button>
+        </div>
+    `;
+    
+    paginationDiv.innerHTML = paginationHTML;
+}
+
+function changePage(newPage) {
+    const totalPages = Math.ceil(publications.length / itemsPerPage);
+    if (newPage >= 1 && newPage <= totalPages) {
+        currentPage = newPage;
+        renderPublicationsTable();
+        updatePaginationControls();
+    }
+}
+
 // Event listeners for publications
 document.getElementById('sort-by').addEventListener('change', (e) => {
     currentSort = e.target.value;
+    currentPage = 1; // Reset to first page when sorting changes
     renderPublicationsTable();
+    updatePaginationControls();
 });
 
 document.getElementById('publication-search').addEventListener('input', (e) => {
@@ -157,6 +195,23 @@ window.addEventListener('scroll', () => {
         navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
     } else {
         navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+    }
+});
+
+// Read More functionality for About section
+document.querySelector('.read-more-btn').addEventListener('click', function() {
+    const aboutFull = document.querySelector('.about-full');
+    const aboutPreview = document.querySelector('.about-preview');
+    const button = this;
+    
+    if (aboutFull.style.display === 'none') {
+        aboutFull.style.display = 'block';
+        aboutPreview.style.display = 'none';
+        button.classList.add('expanded');
+    } else {
+        aboutFull.style.display = 'none';
+        aboutPreview.style.display = 'block';
+        button.classList.remove('expanded');
     }
 });
 
