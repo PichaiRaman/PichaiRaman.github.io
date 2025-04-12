@@ -358,7 +358,9 @@ body {
 /* Experience Section */
 .experience-timeline {
     position: relative;
-    padding: 20px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
 }
 
 .experience-timeline::before {
@@ -366,15 +368,16 @@ body {
     position: absolute;
     top: 0;
     left: 50%;
-    width: 2px;
+    width: 4px;
     height: 100%;
     background: #007bff;
     transform: translateX(-50%);
+    z-index: 1;
 }
 
 .experience-item {
     position: relative;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
     width: 100%;
     opacity: 0;
     transform: translateY(20px);
@@ -392,80 +395,95 @@ body {
     transform: translateX(-50%);
     background: #007bff;
     color: white;
-    padding: 5px 15px;
-    border-radius: 20px;
+    padding: 8px 20px;
+    border-radius: 25px;
     font-weight: bold;
-    margin-bottom: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 2;
 }
 
 .experience-content {
     position: relative;
     width: 45%;
-    padding: 20px;
+    padding: 25px;
     background: white;
     border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     margin: 20px auto;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 2;
 }
 
 .experience-item:nth-child(odd) .experience-content {
     margin-left: 5%;
+    float: left;
 }
 
 .experience-item:nth-child(even) .experience-content {
     margin-left: 50%;
+    float: right;
 }
 
 .experience-content:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .experience-content h3 {
     color: #007bff;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
 }
 
 .experience-title {
     color: #666;
     margin-bottom: 15px;
     font-weight: 500;
+    font-size: 1.1rem;
 }
 
 .experience-content ul {
     list-style-type: disc;
     padding-left: 20px;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 .experience-content li {
-    margin-bottom: 8px;
-    line-height: 1.5;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+/* Clear floats */
+.experience-item::after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 /* Mobile Responsiveness for Experience Section */
 @media (max-width: 768px) {
     .experience-timeline::before {
-        left: 0;
+        left: 30px;
         transform: none;
     }
 
     .experience-date {
-        left: 0;
+        left: 30px;
         transform: none;
-        margin-left: 20px;
+        margin-left: 0;
     }
 
     .experience-content {
         width: 85%;
         margin-left: 15% !important;
+        float: none !important;
     }
 
     .experience-item:nth-child(odd) .experience-content,
     .experience-item:nth-child(even) .experience-content {
         margin-left: 15% !important;
+        float: none !important;
     }
 }
 

@@ -218,17 +218,22 @@ document.querySelector('.read-more-btn').addEventListener('click', function() {
 // Experience section scroll animation
 function checkScroll() {
     const experienceItems = document.querySelectorAll('.experience-item');
+    const windowHeight = window.innerHeight;
+    const triggerBottom = windowHeight * 0.8;
+
     experienceItems.forEach(item => {
         const itemTop = item.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-        if (itemTop < windowHeight * 0.8) {
+        if (itemTop < triggerBottom) {
             item.classList.add('visible');
         }
     });
 }
 
-window.addEventListener('scroll', checkScroll);
-window.addEventListener('load', checkScroll);
+// Initialize scroll animation
+document.addEventListener('DOMContentLoaded', () => {
+    checkScroll();
+    window.addEventListener('scroll', checkScroll);
+});
 
 // Initialize the page
 document.addEventListener('DOMContentLoaded', () => {
