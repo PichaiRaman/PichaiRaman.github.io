@@ -361,6 +361,8 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
 }
 
 .experience-timeline::before {
@@ -368,7 +370,7 @@ body {
     position: absolute;
     top: 0;
     left: 50%;
-    width: 4px;
+    width: 6px;
     height: 100%;
     background: #007bff;
     transform: translateX(-50%);
@@ -395,24 +397,26 @@ body {
     transform: translateX(-50%);
     background: #007bff;
     color: white;
-    padding: 8px 20px;
-    border-radius: 25px;
+    padding: 10px 25px;
+    border-radius: 30px;
     font-weight: bold;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     z-index: 2;
+    font-size: 1.1rem;
 }
 
 .experience-content {
     position: relative;
     width: 45%;
-    padding: 25px;
+    padding: 30px;
     background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
     margin: 20px auto;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
     z-index: 2;
+    border: 1px solid rgba(0,0,0,0.1);
 }
 
 .experience-item:nth-child(odd) .experience-content {
@@ -426,21 +430,22 @@ body {
 }
 
 .experience-content:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
 }
 
 .experience-content h3 {
     color: #007bff;
     margin-bottom: 15px;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 
 .experience-title {
-    color: #666;
-    margin-bottom: 15px;
+    color: #333;
+    margin-bottom: 20px;
     font-weight: 500;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 
 .experience-content ul {
@@ -450,8 +455,9 @@ body {
 }
 
 .experience-content li {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     line-height: 1.6;
+    color: #555;
 }
 
 /* Clear floats */
@@ -472,12 +478,15 @@ body {
         left: 30px;
         transform: none;
         margin-left: 0;
+        font-size: 1rem;
+        padding: 8px 20px;
     }
 
     .experience-content {
         width: 85%;
         margin-left: 15% !important;
         float: none !important;
+        padding: 20px;
     }
 
     .experience-item:nth-child(odd) .experience-content,

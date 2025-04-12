@@ -231,8 +231,14 @@ function checkScroll() {
 
 // Initialize scroll animation
 document.addEventListener('DOMContentLoaded', () => {
+    // Initial check
     checkScroll();
+    
+    // Add scroll event listener
     window.addEventListener('scroll', checkScroll);
+    
+    // Add resize event listener to handle window size changes
+    window.addEventListener('resize', checkScroll);
 });
 
 // Initialize the page
