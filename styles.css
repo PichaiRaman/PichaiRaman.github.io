@@ -355,23 +355,63 @@ body {
     text-decoration: underline;
 }
 
-/* Projects Section */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+/* Experience Section */
+.experience-timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 0;
 }
 
-.project-card {
+.experience-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50px;
+    height: 100%;
+    width: 2px;
+    background: #e0e0e0;
+}
+
+.experience-item {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-left: 100px;
+}
+
+.experience-date {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 80px;
+    text-align: right;
+    color: #666;
+    font-weight: 500;
+}
+
+.experience-content {
     background: white;
-    border-radius: 1rem;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
 }
 
-.project-card:hover {
-    transform: translateY(-5px);
+.experience-content h3 {
+    margin: 0 0 0.5rem 0;
+    color: var(--primary-color);
+    font-size: 1.25rem;
+}
+
+.experience-title {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.experience-content p {
+    margin: 0;
+    line-height: 1.6;
 }
 
 /* Contact Section */
@@ -507,6 +547,23 @@ footer {
     .publications-table {
         display: block;
         overflow-x: auto;
+    }
+
+    .experience-timeline::before {
+        left: 30px;
+    }
+    
+    .experience-item {
+        padding-left: 60px;
+    }
+    
+    .experience-date {
+        width: 50px;
+        font-size: 0.9rem;
+    }
+    
+    .experience-content {
+        padding: 1rem;
     }
 }
 
