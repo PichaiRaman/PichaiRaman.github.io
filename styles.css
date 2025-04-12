@@ -382,8 +382,8 @@ body {
     margin-bottom: 60px;
     width: 100%;
     opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.6s ease;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
 }
 
 .experience-item.visible {
@@ -395,14 +395,14 @@ body {
     position: absolute;
     background: #007bff;
     color: white;
-    padding: 10px 25px;
+    padding: 8px 20px;
     border-radius: 30px;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     z-index: 2;
     font-size: 1.1rem;
-    top: -40px;
+    top: -20px;
     width: fit-content;
 }
 
@@ -425,10 +425,11 @@ body {
     border-radius: 15px;
     box-shadow: 0 6px 20px rgba(0,0,0,0.1);
     margin: 20px auto;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
     z-index: 2;
     border: 1px solid rgba(0,0,0,0.1);
-    margin-top: 60px;
+    margin-top: 40px;
+    transform: scale(0.95);
 }
 
 .experience-item:nth-child(odd) .experience-content {
@@ -442,8 +443,8 @@ body {
 }
 
 .experience-content:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
 .experience-content h3 {
@@ -493,7 +494,7 @@ body {
         margin-left: 0;
         font-size: 1rem;
         padding: 8px 20px;
-        top: -30px;
+        top: -15px;
     }
 
     .experience-content {
@@ -501,7 +502,7 @@ body {
         margin-left: 15% !important;
         float: none !important;
         padding: 20px;
-        margin-top: 50px;
+        margin-top: 30px;
     }
 
     .experience-item:nth-child(odd) .experience-content,
