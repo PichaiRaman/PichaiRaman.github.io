@@ -358,61 +358,143 @@ body {
 /* Experience Section */
 .experience-timeline {
     position: relative;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 2rem 0;
+    padding: 20px 0;
 }
 
 .experience-timeline::before {
     content: '';
     position: absolute;
     top: 0;
-    left: 50px;
-    height: 100%;
+    left: 50%;
     width: 2px;
-    background: #e0e0e0;
+    height: 100%;
+    background: #007bff;
+    transform: translateX(-50%);
 }
 
 .experience-item {
     position: relative;
-    margin-bottom: 3rem;
-    padding-left: 100px;
+    margin-bottom: 40px;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+.experience-item.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .experience-date {
     position: absolute;
-    left: 0;
-    top: 0;
-    width: 80px;
-    text-align: right;
-    color: #666;
-    font-weight: 500;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #007bff;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .experience-content {
+    position: relative;
+    width: 45%;
+    padding: 20px;
     background: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    margin: 20px auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-item:nth-child(odd) .experience-content {
+    margin-left: 5%;
+}
+
+.experience-item:nth-child(even) .experience-content {
+    margin-left: 50%;
+}
+
+.experience-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 .experience-content h3 {
-    margin: 0 0 0.5rem 0;
-    color: var(--primary-color);
-    font-size: 1.25rem;
+    color: #007bff;
+    margin-bottom: 10px;
 }
 
 .experience-title {
-    font-weight: 600;
-    color: #2c3e50;
-    margin-bottom: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+    font-weight: 500;
 }
 
-.experience-content p {
-    margin: 0;
-    line-height: 1.6;
+.experience-content ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 10px;
 }
+
+.experience-content li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* Mobile Responsiveness for Experience Section */
+@media (max-width: 768px) {
+    .experience-timeline::before {
+        left: 0;
+        transform: none;
+    }
+
+    .experience-date {
+        left: 0;
+        transform: none;
+        margin-left: 20px;
+    }
+
+    .experience-content {
+        width: 85%;
+        margin-left: 15% !important;
+    }
+
+    .experience-item:nth-child(odd) .experience-content,
+    .experience-item:nth-child(even) .experience-content {
+        margin-left: 15% !important;
+    }
+}
+
+/* Add scroll animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Add this to your existing JavaScript */
+function checkScroll() {
+    const experienceItems = document.querySelectorAll('.experience-item');
+    experienceItems.forEach(item => {
+        const itemTop = item.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if (itemTop < windowHeight * 0.8) {
+            item.classList.add('visible');
+        }
+    });
+}
+
+window.addEventListener('scroll', checkScroll);
+window.addEventListener('load', checkScroll);
 
 /* Contact Section */
 .contact-content {
@@ -550,20 +632,24 @@ footer {
     }
 
     .experience-timeline::before {
-        left: 30px;
-    }
-    
-    .experience-item {
-        padding-left: 60px;
+        left: 0;
+        transform: none;
     }
     
     .experience-date {
-        width: 50px;
-        font-size: 0.9rem;
+        left: 0;
+        transform: none;
+        margin-left: 20px;
     }
     
     .experience-content {
-        padding: 1rem;
+        width: 85%;
+        margin-left: 15% !important;
+    }
+    
+    .experience-item:nth-child(odd) .experience-content,
+    .experience-item:nth-child(even) .experience-content {
+        margin-left: 15% !important;
     }
 }
 

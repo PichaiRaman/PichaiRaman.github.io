@@ -215,6 +215,21 @@ document.querySelector('.read-more-btn').addEventListener('click', function() {
     }
 });
 
+// Experience section scroll animation
+function checkScroll() {
+    const experienceItems = document.querySelectorAll('.experience-item');
+    experienceItems.forEach(item => {
+        const itemTop = item.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if (itemTop < windowHeight * 0.8) {
+            item.classList.add('visible');
+        }
+    });
+}
+
+window.addEventListener('scroll', checkScroll);
+window.addEventListener('load', checkScroll);
+
 // Initialize the page
 document.addEventListener('DOMContentLoaded', () => {
     loadPublications();
