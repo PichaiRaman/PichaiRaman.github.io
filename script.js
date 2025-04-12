@@ -168,9 +168,31 @@ function createProjectElement(project) {
 
 // Function to load projects
 function loadProjects() {
-    const projectsGrid = document.querySelector('.projects-grid');
+    const grid = document.querySelector('.projects-grid');
+    if (!grid) return;
+
+    const projects = [
+        {
+            title: "Project Name",
+            description: "Brief description of the project and its significance.",
+            technologies: ["Technology1", "Technology2", "Technology3"],
+            link: "https://github.com/PichaiRaman/project"
+        },
+        // Add more projects as needed
+    ];
+
     projects.forEach(project => {
-        projectsGrid.appendChild(createProjectElement(project));
+        const card = document.createElement('div');
+        card.className = 'project-card';
+        card.innerHTML = `
+            <h3>${project.title}</h3>
+            <p>${project.description}</p>
+            <div class="technologies">
+                ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+            </div>
+            <a href="${project.link}" target="_blank" class="project-link">View Project</a>
+        `;
+        grid.appendChild(card);
     });
 }
 
@@ -245,4 +267,6 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
     loadPublications();
     loadProjects();
+    checkScroll();
+    window.addEventListener('scroll', checkScroll);
 }); 
