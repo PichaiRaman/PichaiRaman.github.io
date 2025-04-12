@@ -26,9 +26,13 @@ const projects = [
 // Publications handling
 let currentSort = 'year-desc';
 
-function loadPublications() {
+async function loadPublications() {
     try {
-        console.log('Loading publications...');
+        const response = await fetch('publications.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        publications = await response.json();
         updatePublicationSummary();
         renderPublicationsTable();
     } catch (error) {
@@ -72,7 +76,7 @@ function renderPublicationsTable() {
             <td>${pub.authors}</td>
             <td>${pub.journal}</td>
             <td><a href="https://pubmed.ncbi.nlm.nih.gov/${pub.pmid}/" target="_blank">${pub.pmid}</a></td>
-            <td><a href="${pub.link}" target="_blank">View</a></td>
+            <td><a href="https://pubmed.ncbi.nlm.nih.gov/${pub.pmid}/" target="_blank">View</a></td>
         `;
         tbody.appendChild(row);
     });
