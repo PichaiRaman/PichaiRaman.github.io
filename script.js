@@ -263,8 +263,23 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', checkScroll);
 });
 
-// Initialize the page
+// Handle loading screen animation
 document.addEventListener('DOMContentLoaded', () => {
+    const loadingScreen = document.querySelector('.loading-screen');
+    const mainContent = document.querySelector('.main-content');
+    
+    // Show loading screen for 3 seconds
+    setTimeout(() => {
+        loadingScreen.classList.add('fade-out');
+        mainContent.classList.add('fade-in');
+        
+        // Remove loading screen from DOM after animation
+        setTimeout(() => {
+            loadingScreen.style.display = 'none';
+        }, 500);
+    }, 3000);
+
+    // Initialize other functionality
     loadPublications();
     loadProjects();
     checkScroll();
