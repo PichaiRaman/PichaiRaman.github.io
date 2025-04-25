@@ -1004,9 +1004,11 @@ footer {
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
     width: calc(100% - 220px);
-    display: flex;
-    gap: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education-text {
+    width: 100%;
 }
 
 .education-content:hover {
@@ -1023,10 +1025,6 @@ footer {
     max-height: 60px;
     object-fit: contain;
     margin-right: 20px;
-}
-
-.education-text {
-    flex: 1;
 }
 
 .education-content h3 {
