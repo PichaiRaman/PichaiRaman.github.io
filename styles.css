@@ -955,4 +955,138 @@ footer {
     .scientific-icons i {
         font-size: 2.5rem;
     }
+}
+
+/* Education Section */
+.education-timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--section-bg);
+    border-radius: 16px;
+}
+
+.education-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background-color: var(--accent-color);
+    opacity: 0.3;
+}
+
+.education-item {
+    position: relative;
+    margin-bottom: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.education-date {
+    position: absolute;
+    left: 0;
+    width: 200px;
+    text-align: right;
+    padding-right: 30px;
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.education-content {
+    margin-left: 220px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    width: calc(100% - 220px);
+    display: flex;
+    gap: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+}
+
+.education-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-right: 20px;
+}
+
+.education-text {
+    flex: 1;
+}
+
+.education-content h3 {
+    margin: 0 0 10px 0;
+    color: var(--text-color);
+    font-size: 1.8rem;
+}
+
+.education-degree {
+    font-weight: 600;
+    color: var(--accent-color);
+    margin: 5px 0;
+    font-size: 1.4rem;
+}
+
+.education-details {
+    color: var(--text-secondary);
+    margin: 5px 0;
+    font-size: 1.2rem;
+}
+
+.education-date {
+    position: absolute;
+    left: 0;
+    width: 200px;
+    text-align: right;
+    padding-right: 30px;
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+@media (max-width: 768px) {
+    .education-timeline::before {
+        left: 30px;
+    }
+
+    .education-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .education-logo {
+        width: 60px;
+        height: 60px;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .education-content h3 {
+        font-size: 1.6rem;
+    }
+
+    .education-degree {
+        font-size: 1.2rem;
+    }
+
+    .education-details {
+        font-size: 1.1rem;
+    }
+
+    .education-date {
+        font-size: 1.2rem;
+    }
 } 
