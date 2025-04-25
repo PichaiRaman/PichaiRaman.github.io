@@ -5,6 +5,8 @@
     --light-text: #6b7280;
     --background-color: #ffffff;
     --section-bg: #f3f4f6;
+    --card-bg: #ffffff;
+    --accent-color: #2563eb;
 }
 
 * {
@@ -550,21 +552,6 @@ body {
     }
 }
 
-/* Add this to your existing JavaScript */
-function checkScroll() {
-    const experienceItems = document.querySelectorAll('.experience-item');
-    experienceItems.forEach(item => {
-        const itemTop = item.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-        if (itemTop < windowHeight * 0.8) {
-            item.classList.add('visible');
-        }
-    });
-}
-
-window.addEventListener('scroll', checkScroll);
-window.addEventListener('load', checkScroll);
-
 /* Contact Section */
 .contact-content {
     text-align: center;
@@ -982,9 +969,6 @@ footer {
     position: relative;
     margin-bottom: 40px;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
 }
 
 .education-date {
@@ -995,11 +979,12 @@ footer {
     padding-right: 30px;
     color: var(--accent-color);
     font-weight: 600;
+    font-size: 1.3rem;
 }
 
 .education-content {
     margin-left: 220px;
-    background-color: #ffffff;
+    background-color: var(--card-bg);
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
@@ -1007,24 +992,9 @@ footer {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.education-text {
-    width: 100%;
-}
-
 .education-content:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
-}
-
-.education-logo {
-    width: 60px;
-    height: 60px;
-    min-width: 60px;
-    min-height: 60px;
-    max-width: 60px;
-    max-height: 60px;
-    object-fit: contain;
-    margin-right: 20px;
 }
 
 .education-content h3 {
@@ -1041,43 +1011,40 @@ footer {
 }
 
 .education-details {
-    color: var(--text-secondary);
+    color: var(--light-text);
     margin: 5px 0;
     font-size: 1.2rem;
 }
 
-.education-date {
-    position: absolute;
-    left: 0;
-    width: 200px;
-    text-align: right;
-    padding-right: 30px;
-    color: var(--accent-color);
-    font-weight: 600;
-    font-size: 1.3rem;
-}
-
+/* Media Queries */
 @media (max-width: 768px) {
-    .education-timeline::before {
-        left: 30px;
+    .section {
+        padding: 4rem 0;
+    }
+
+    .section h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .education-timeline {
+        padding: 15px;
+    }
+
+    .education-date {
+        position: relative;
+        left: 0;
+        width: 100%;
+        text-align: left;
+        padding-right: 0;
+        margin-bottom: 10px;
+        font-size: 1.2rem;
     }
 
     .education-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+        margin-left: 0;
+        width: 100%;
         padding: 20px;
-    }
-
-    .education-logo {
-        width: 50px;
-        height: 50px;
-        min-width: 50px;
-        min-height: 50px;
-        max-width: 50px;
-        max-height: 50px;
-        margin-right: 0;
-        margin-bottom: 15px;
     }
 
     .education-content h3 {
@@ -1091,8 +1058,18 @@ footer {
     .education-details {
         font-size: 1.1rem;
     }
+}
 
-    .education-date {
-        font-size: 1.2rem;
+@media (max-width: 480px) {
+    .section {
+        padding: 3rem 0;
+    }
+
+    .section h2 {
+        font-size: 1.8rem;
+    }
+
+    .education-content {
+        padding: 15px;
     }
 } 

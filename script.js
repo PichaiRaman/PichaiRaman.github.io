@@ -240,28 +240,17 @@ document.querySelector('.read-more-btn').addEventListener('click', function() {
 // Experience section scroll animation
 function checkScroll() {
     const experienceItems = document.querySelectorAll('.experience-item');
-    const windowHeight = window.innerHeight;
-    const triggerBottom = windowHeight * 0.8;
-
     experienceItems.forEach(item => {
         const itemTop = item.getBoundingClientRect().top;
-        if (itemTop < triggerBottom) {
+        const windowHeight = window.innerHeight;
+        if (itemTop < windowHeight * 0.8) {
             item.classList.add('visible');
         }
     });
 }
 
-// Initialize scroll animation
-document.addEventListener('DOMContentLoaded', () => {
-    // Initial check
-    checkScroll();
-    
-    // Add scroll event listener
-    window.addEventListener('scroll', checkScroll);
-    
-    // Add resize event listener to handle window size changes
-    window.addEventListener('resize', checkScroll);
-});
+window.addEventListener('scroll', checkScroll);
+window.addEventListener('load', checkScroll);
 
 // Handle loading screen animation
 document.addEventListener('DOMContentLoaded', () => {
