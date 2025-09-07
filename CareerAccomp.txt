@@ -1,0 +1,15 @@
+
+
+•15+ years’ experience leveraging cloud platforms (AWS, GCP, Azure) to design and deploy scalable genomic workflows across transcriptomics, metabolomics, epigenomics, and other omics data types
+
+•10+ years building and leading cross-functional high performing teams of up to a dozen individuals in machine learning, computational analysis, and bioinformatics engineering
+
+•Over 50+ publications in high impact factor peer-reviewed journals across Precision Oncology, Bioinformatics, Immunogenomics, and Translational science
+
+•Led target discovery efforts in a multi-institutional collaboration (Pediatric Cancer Dream Team / Stand Up to Cancer), identifying GPC2 as a key neuroblastoma target that advanced to clinical trials.
+
+•Played a key role in the original Cancer Cell Line Encyclopedia (CCLE) project and leveraged the data to identify the target and mechanism of action of Englerin A.
+
+•Contributed to groundbreaking research on mechanisms of resistance to CD19-targeted CAR T-cell therapy, identifying alternative splicing and acquired mutations in CD19 as key factors enabling immune evasion in leukemia.
+
+•Senior author on the development of a robust transcriptome-based classifier for medulloblastoma subtyping, achieving over 97% accuracy across independent datasets and enabling reliable classification of retrospective and prospective RNA-based data.

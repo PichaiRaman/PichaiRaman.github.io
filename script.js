@@ -1,15 +1,10 @@
 // Publications data
 let publications = [
-    {
-        authors: "Author1, Author2, Pichai Raman, et al.",
-        doi: "10.xxxx/xxxx",
-        journal: "Journal Name",
-        pmid: "12345678",
-        title: "Your Publication Title",
-        year: "2024",
-        link: "https://example.com/paper"
-    }
-    // Add more publications here
+    {"authors": "Nabbi A, Beck P, Delaidelli A, Oldridge DA, Sudhaman S, Zhu K, Yang SYC, Mulder DT, Bruce JP,Paulson JN, Raman P, Zhu Y, Resnick AC, Sorensen PH, Sill M, Brabetz S, Lambo S, Malkin D, Johann PD, Kool M, Jones DTW, Pfister SM, Jäger N, Pugh TJ", "doi": "10.1186/s13073-023-01219-x", "journal": "Genome Medicine, 15(1)", "pmid": "37679810", "title": "Transcriptional immunogenomic analysis reveals distinct immunological clusters in paediatric nervous system tumours", "year": "2023"},
+    {"authors": "Shapiro JA, Gaonkar KS, Spielman SJ, Savonen CL, Bethell CJ, Jin R, Rathi KS, Zhu Y, Egolf LE, Farrow BK, Miller DP, Yang Y, Koganti T, Noureen N, Koptyra MP, Duong N, Santi M, Kim J, Robins S, Storm PB, Mack SC, Lilly JV, Xie HM, Jain P, Raman P, Rood BR, Lulla RR, Nazarian J, Kraya AA, VaksmanZ, Heath AP, Kline C, Scolaro L, Viaene AN, Huang X, Way GP, Foltz SM, Zhang B, Poetsch AR,Mueller S, Ennis BM, Prados M, Diskin SJ, Zheng S, Guo Y, Kannan S, Waanders AJ, Margol AS, KimMC, Hanson D, Van Kuren N, Wong J, Kaufman RS, Coleman N, Blackden C, Cole KA, Mason JL,Madsen PJ, Koschmann CJ, Stewart DR, Wafula E, Brown MA, Resnick AC, Greene CS, Rokita JL,Taroni JN; Children's Brain Tumor Network; Pacific Pediatric Neuro-Oncology Consortium", "doi": "10.1016/j.xgen.2023.100340", "journal": "Cell Genomics, 3(7):100340", "pmid": "37492101", "title": "OpenPBTA:The Open Pediatric Brain Tumor Atlas", "year": "2023"},
+    {"authors": "Dang MT, Gonzalez MV, Gaonkar KS, Rathi KS, Young P, Arif S, Zhai L, Alam Z, Devalaraja S, To TKJ,Folkert IW, Raman P, Rokita JL, Martinez D, Taroni JN, Shapiro JA, Greene CS, Savonen C, Mafra F,Hakonarson H, Curran T, Haldar M", "doi": "10.1016/j.celrep.2023.112600", "journal": "Cell Reports, 42(6):112600", "pmid": "37235472", "title": "Macrophages in SHH subgroup medulloblastoma display dynamicheterogeneity that varies with treatment modality", "year": "2023"},
+    {"authors": "Maddipati R, Norgard RJ, Baslan T, Rathi KS, Zhang A, Saeid A, Higashihara T, Wu F, Kumar A,Annamalai V, Bhattacharya S, Raman P, Adkisson CA, Pitarresi JR, Wengyn MD, Yamazoe T, Li J, BalliD, LaRiviere MJ, Ngo TC, Folkert IW, Millstein ID, Bermeo, J, Carpenter EL, McAuliffe JC, Oktay MH,Brekken RA, Lowe SW, Iacobuzio-Donahue CA, Notta F, Stanger BZ", "doi": "10.1158/2159-8290.CD-20-1826", "journal": "Cancer Discovery, 12(2):542-561", "pmid": "34551968", "title": "MYC Levels Regulate MetastaticHeterogeneity in Pancreatic Adenocarcinoma", "year": "2021"},
+    {"authors": "Tong CCL, Koptyra M, Raman P, Rathi KS, Choudhari N, Lin X, Seckar T, Wei Z, Kohanski MA,O'Malley BW, Cohen NA, Kennedy DW, Adappa ND, Robertson ES, Baranov E, Kuan EC,Papagiannopoulos P, Jalaly JB, Feldman MD, Storm PB, Resnick AC, Palmer JN", "doi": "10.1002/alr.22882", "journal": "Int Forum Allergy Rhinol, 12(2),200-209", "pmid": "34510780", "title": "Targeted geneexpression profiling of inverted papilloma and squamous cell carcinoma", "year": "2021"}
 ];
 
 // Sample projects data - replace with your actual projects
@@ -28,22 +23,11 @@ let currentSort = 'year-desc';
 let currentPage = 1;
 const itemsPerPage = 10;
 
-async function loadPublications() {
-    try {
-        const response = await fetch('publications.json');
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        publications = data.publications;
-        updatePublicationSummary();
-        renderPublicationsTable();
-        updatePaginationControls();
-    } catch (error) {
-        console.error('Error loading publications:', error);
-        const tbody = document.getElementById('publications-table-body');
-        tbody.innerHTML = `<tr><td colspan="5" style="color: red; text-align: center;">Error loading publications: ${error.message}</td></tr>`;
-    }
+function loadPublications() {
+    // Publications data is now embedded directly in the script
+    updatePublicationSummary();
+    renderPublicationsTable();
+    updatePaginationControls();
 }
 
 function updatePublicationSummary() {
@@ -247,6 +231,7 @@ function checkScroll() {
             item.classList.add('visible');
         }
     });
+
 }
 
 window.addEventListener('scroll', checkScroll);
