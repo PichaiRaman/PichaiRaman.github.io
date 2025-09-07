@@ -952,22 +952,23 @@ footer {
 }
 
 .highlights-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
 .highlights-list li {
-    position: relative;
-    padding: 1.5rem 0 1.5rem 3rem;
-    border-bottom: 1px solid #e5e7eb;
-    font-size: 1.35rem;
-    font-weight: 600;
-    line-height: 1.7;
-    color: var(--text-color);
-    transition: all 0.3s ease;
-    border-radius: 8px;
-    margin: 0.5rem 0;
+    position: relative !important;
+    padding: 1.5rem 0 1.5rem 3rem !important;
+    border-bottom: 1px solid #e5e7eb !important;
+    font-size: 1.35rem !important;
+    font-weight: 600 !important;
+    line-height: 1.7 !important;
+    color: var(--text-color) !important;
+    transition: all 0.3s ease !important;
+    border-radius: 8px !important;
+    margin: 0.5rem 0 !important;
+    cursor: pointer !important;
 }
 
 .highlights-list li:last-child {
